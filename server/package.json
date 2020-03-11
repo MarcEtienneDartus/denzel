@@ -11,6 +11,9 @@
     "p-limit": "^2.2.2",
     "p-settle": "^4.0.0"
   },
+  "scripts": {
+    "start": "nodemon index.js"
+  },
   "devDependencies": {
     "nodemon": "^2.0.2"
   }
