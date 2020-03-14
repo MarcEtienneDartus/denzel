@@ -17,5 +17,9 @@ app.get('/', (request, response) => {
   response.send({'ack': true});
 });
 
-app.listen(PORT);
-console.log(`Running on port ${PORT}`);
+const moviesController = require('./movies');
+app.use('/movies', moviesController);
+
+app.listen(PORT,()=>{
+  console.log(`Running on port ${PORT}`);
+});
