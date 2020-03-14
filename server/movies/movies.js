@@ -1,4 +1,4 @@
-const mongo = require('./mongo.js');
+const mongo = require('../mongo.js');
 const imdb = require('../imdb');
 
 const getMoviesById = (id,callback) => {

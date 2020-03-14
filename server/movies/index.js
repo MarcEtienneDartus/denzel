@@ -4,8 +4,8 @@ const router = express.Router();
 
 router.get('/populate/:id', async (req, res) => {
     const { id } = req.params;
-    movies.populateDatabase(id,(movies)=>{
-        res.send(movies)
+    movies.populateDatabase(id,(total)=>{
+        res.send(total)
     });
 });
 
@@ -20,7 +20,9 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
     const { id } = req.params;
     if(id==="search"){
-        const { limit, metascore } = req.query;
+        let { limit, metascore } = req.query;
+        if(limit === undefined) limit = 5;
+        if(metascore === undefined) metascore = 0;
         movies.searchMovie(parseInt(limit), parseInt(metascore),(docs)=>{
             res.send(docs)
         })
